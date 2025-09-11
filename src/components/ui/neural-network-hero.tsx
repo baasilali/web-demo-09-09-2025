@@ -193,7 +193,7 @@ function ShaderPlane() {
     if (!materialRef.current) return;
     materialRef.current.iTime = state.clock.elapsedTime;
     const { width, height } = state.size;
-    materialRef.current.iResolution.set(width, height);
+    materialRef.current.iResolution?.set(width, height);
   });
 
   return (
