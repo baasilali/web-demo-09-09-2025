@@ -187,7 +187,7 @@ extend({ CPPNShaderMaterial });
 
 function ShaderPlane() {
   const meshRef = useRef<THREE.Mesh>(null!);
-  const materialRef = useRef<THREE.ShaderMaterial>(null!);
+  const materialRef = useRef<THREE.ShaderMaterial & { iTime?: number; iResolution?: THREE.Vector2 }>(null!);
 
   useFrame((state) => {
     if (!materialRef.current) return;
