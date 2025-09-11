@@ -187,7 +187,7 @@ extend({ CPPNShaderMaterial });
 
 function ShaderPlane() {
   const meshRef = useRef<THREE.Mesh>(null!);
-  const materialRef = useRef<any>(null!);
+  const materialRef = useRef<THREE.ShaderMaterial>(null!);
 
   useFrame((state) => {
     if (!materialRef.current) return;
@@ -418,6 +418,6 @@ export default function Hero({
 
 declare module '@react-three/fiber' {
   interface ThreeElements {
-    cPPNShaderMaterial: any;
+    cPPNShaderMaterial: object;
   }
 }

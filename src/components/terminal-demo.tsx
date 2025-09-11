@@ -12,7 +12,7 @@ interface TerminalLine {
 const terminalCommands: TerminalLine[] = [
   { id: 1, type: 'prompt', content: '$ ', delay: 500 },
   { id: 2, type: 'command', content: 'elide --version', delay: 1500 },
-  { id: 3, type: 'output', content: 'Elide Runtime v3.0.0', delay: 800 },
+  { id: 3, type: 'output', content: 'Elide Runtime v1.0.8', delay: 800 },
   { id: 4, type: 'output', content: '', delay: 300 },
   
   { id: 5, type: 'prompt', content: '$ ', delay: 500 },
