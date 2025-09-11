@@ -8,6 +8,7 @@ import * as THREE from 'three';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
+import TerminalDemo from '@/components/terminal-demo';
 
 gsap.registerPlugin(SplitText, useGSAP);
 
@@ -347,54 +348,66 @@ export default function Hero({
     <section ref={sectionRef} className="relative h-screen w-screen overflow-hidden">
       <ShaderBackground />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 pb-24 pt-36 sm:gap-8 sm:pt-44 md:px-10 lg:px-16">
-        {badgeText && badgeLabel && (
-          <div ref={badgeRef} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm">
-            <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">{badgeLabel}</span>
-            <span className="h-1 w-1 rounded-full bg-white/40" />
-            <span className="text-xs font-light tracking-tight text-white/80">{badgeText}</span>
-          </div>
-        )}
+      <div className="relative mx-auto flex max-w-7xl flex-col lg:flex-row items-start justify-between gap-12 px-6 pb-24 pt-20 sm:gap-8 sm:pt-24 md:px-10 lg:px-16">
+        {/* Left Column - Content */}
+        <div className="flex flex-col items-start gap-6 lg:w-1/2">
+          {badgeText && badgeLabel && (
+            <div ref={badgeRef} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm">
+              <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">{badgeLabel}</span>
+              <span className="h-1 w-1 rounded-full bg-white/40" />
+              <span className="text-xs font-light tracking-tight text-white/80">{badgeText}</span>
+            </div>
+          )}
 
-        <div ref={headerRef} className="max-w-2xl flex justify-center">
-          <img 
-            src="/elide-marquee.png" 
-            alt={title}
-            className="h-24 sm:h-32 md:h-40 w-auto object-contain"
+          <div ref={headerRef} className="flex justify-start">
+            <img 
+              src="/elide-marquee.png" 
+              alt={title}
+              className="h-32 sm:h-40 md:h-48 w-auto object-contain"
+            />
+          </div>
+
+          <p 
+            ref={paraRef} 
+            className="text-left text-lg font-light leading-relaxed tracking-tight text-white/85 sm:text-xl"
+            dangerouslySetInnerHTML={{ __html: description }}
           />
+
+          <div ref={ctaRef} className="flex flex-wrap items-center gap-4 pt-4">
+            {ctaButtons.map((button, index) => (
+              <a
+                key={index}
+                href={button.href}
+                className={`rounded-2xl border border-white/10 px-6 py-3.5 text-base font-medium tracking-tight transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 duration-300 ${
+                  button.primary
+                    ? "bg-white/15 text-white backdrop-blur-sm hover:bg-white/25"
+                    : "text-white/80 hover:bg-white/10"
+                }`}
+              >
+                {button.text}
+              </a>
+            ))}
+          </div>
         </div>
 
-        <p ref={paraRef} className="max-w-xl text-center text-base font-light leading-relaxed tracking-tight text-white/75 sm:text-lg">
-          {description}
-        </p>
-
-        <div ref={ctaRef} className="flex flex-wrap items-center gap-3 pt-2">
-          {ctaButtons.map((button, index) => (
-            <a
-              key={index}
-              href={button.href}
-              className={`rounded-2xl border border-white/10 px-5 py-3 text-sm font-light tracking-tight transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 duration-300 ${
-                button.primary
-                  ? "bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
-                  : "text-white/80 hover:bg-white/5"
-              }`}
-            >
-              {button.text}
-            </a>
-          ))}
+        {/* Right Column - Terminal */}
+        <div className="flex justify-center lg:justify-end lg:w-1/2 mt-8 lg:mt-12">
+          <TerminalDemo />
         </div>
 
         {microDetails && microDetails.length > 0 && (
-          <ul ref={microRef} className="mt-8 flex flex-wrap gap-6 text-xs font-extralight tracking-tight text-white/60">
-            {microDetails.map((detail, index) => {
-              const refMap = [microItem1Ref, microItem2Ref, microItem3Ref];
-              return (
-                <li key={index} ref={refMap[index]} className="flex items-center gap-2">
-                  <span className="h-1 w-1 rounded-full bg-white/40" /> {detail}
-                </li>
-              );
-            })}
-          </ul>
+          <div className="lg:col-span-2 w-full">
+            <ul ref={microRef} className="mt-8 flex flex-wrap gap-6 text-xs font-extralight tracking-tight text-white/60">
+              {microDetails.map((detail, index) => {
+                const refMap = [microItem1Ref, microItem2Ref, microItem3Ref];
+                return (
+                  <li key={index} ref={refMap[index]} className="flex items-center gap-2">
+                    <span className="h-1 w-1 rounded-full bg-white/40" /> {detail}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         )}
       </div>
 

@@ -45,13 +45,6 @@ export default function Navbar() {
       href: "/blog",
     },
     {
-      title: "About",
-      icon: (
-        <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "/about",
-    },
-    {
       title: "Discord",
       icon: (
         <IconBrandDiscord className="h-full w-full text-neutral-500 dark:text-neutral-300" />

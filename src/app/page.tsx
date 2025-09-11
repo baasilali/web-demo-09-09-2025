@@ -7,10 +7,10 @@ export default function Home() {
       {/* Hero Section with Neural Network Background */}
       <Hero 
         title="Elide Runtime"
-        description="Elide is an all-in-one, AI-native, open source software runtime, supporting many languages in one; used by devs to build web apps, command line tools, and scripts."
+        description="Run <span class='text-yellow-400 font-bold text-xl'>JavaScript</span>, <span class='text-blue-400 font-bold text-xl'>Python</span>, <span class='text-red-400 font-bold text-xl'>Ruby</span>, <span class='text-orange-400 font-bold text-xl'>Java</span>, <span class='text-purple-400 font-bold text-xl'>Kotlin</span>, and more — all in a single, blazing-fast runtime.<br><br>Build anything from web apps to CLI tools with the power of polyglot programming."
         ctaButtons={[
-          { text: "Get Started", href: "#get-started", primary: true },
-          { text: "Learn More", href: "#learn-more" }
+          { text: "Get Started", href: "https://docs.elide.dev/index_md.html", primary: true },
+          { text: "Learn More", href: "/blog" }
         ]}
       />
       
