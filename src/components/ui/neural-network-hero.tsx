@@ -360,6 +360,7 @@ export default function Hero({
           )}
 
           <div ref={headerRef} className="flex justify-start">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
               src="/elide-marquee.png" 
               alt={title}
