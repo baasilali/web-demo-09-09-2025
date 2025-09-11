@@ -348,9 +348,9 @@ export default function Hero({
     <section ref={sectionRef} className="relative h-screen w-screen overflow-hidden">
       <ShaderBackground />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col lg:flex-row items-start justify-between gap-12 px-6 pb-24 pt-20 sm:gap-8 sm:pt-24 md:px-10 lg:px-16">
+      <div className="relative mx-auto flex max-w-7xl flex-col lg:flex-row items-start justify-between gap-12 px-6 pb-24 pt-12 sm:gap-8 sm:pt-16 md:px-10 lg:px-16">
         {/* Left Column - Content */}
-        <div className="flex flex-col items-start gap-6 lg:w-1/2">
+        <div className="flex flex-col items-center gap-6 lg:w-1/2" suppressHydrationWarning>
           {badgeText && badgeLabel && (
             <div ref={badgeRef} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm">
               <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">{badgeLabel}</span>
@@ -359,7 +359,7 @@ export default function Hero({
             </div>
           )}
 
-          <div ref={headerRef} className="flex justify-start">
+          <div ref={headerRef} className="flex justify-center" suppressHydrationWarning>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
               src="/elide-marquee.png" 
@@ -370,24 +370,26 @@ export default function Hero({
 
           <p 
             ref={paraRef} 
-            className="text-left text-lg font-light leading-relaxed tracking-tight text-white/85 sm:text-xl"
+            className="text-center text-xl font-light leading-relaxed tracking-tight text-white/85 sm:text-2xl lg:text-3xl"
             dangerouslySetInnerHTML={{ __html: description }}
+            suppressHydrationWarning
           />
 
-          <div ref={ctaRef} className="flex flex-wrap items-center gap-4 pt-4">
-            {ctaButtons.map((button, index) => (
-              <a
-                key={index}
-                href={button.href}
-                className={`rounded-2xl border border-white/10 px-6 py-3.5 text-base font-medium tracking-tight transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 duration-300 ${
-                  button.primary
-                    ? "bg-white/15 text-white backdrop-blur-sm hover:bg-white/25"
-                    : "text-white/80 hover:bg-white/10"
-                }`}
-              >
-                {button.text}
-              </a>
-            ))}
+          <div ref={ctaRef} className="flex flex-wrap justify-center items-center gap-4 pt-6" suppressHydrationWarning>
+            {ctaButtons.map((button, index) => {
+              const primaryClasses = "rounded-2xl border border-white/10 px-6 py-3.5 text-base font-medium tracking-tight transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 duration-300 bg-white/15 text-white backdrop-blur-sm hover:bg-purple-600 hover:border-purple-500";
+              const secondaryClasses = "rounded-2xl border border-white/10 px-6 py-3.5 text-base font-medium tracking-tight transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 duration-300 text-white/80 hover:bg-white/10";
+              
+              return (
+                <a
+                  key={index}
+                  href={button.href}
+                  className={button.primary ? primaryClasses : secondaryClasses}
+                >
+                  {button.text}
+                </a>
+              );
+            })}
           </div>
         </div>
 

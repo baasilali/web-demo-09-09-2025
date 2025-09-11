@@ -7,9 +7,9 @@ export default function Home() {
       {/* Hero Section with Neural Network Background */}
       <Hero 
         title="Elide Runtime"
-        description="Run <span class='text-yellow-400 font-bold text-xl'>JavaScript</span>, <span class='text-blue-400 font-bold text-xl'>Python</span>, <span class='text-red-400 font-bold text-xl'>Ruby</span>, <span class='text-orange-400 font-bold text-xl'>Java</span>, <span class='text-purple-400 font-bold text-xl'>Kotlin</span>, and more — all in a single, blazing-fast runtime.<br><br>Build anything from web apps to CLI tools with the power of polyglot programming."
+        description="Run <span class='text-purple-400 font-bold'>JavaScript</span>, <span class='text-purple-400 font-bold'>Python</span>, <span class='text-purple-400 font-bold'>Ruby</span>, <span class='text-purple-400 font-bold'>Java</span>, <span class='text-purple-400 font-bold'>Kotlin</span>, and more — all in a single, blazing-fast runtime.<br><br>Build anything from <span class='text-pink-400 font-bold'>web apps</span> to <span class='text-pink-400 font-bold'>CLI tools</span> with the power of <span class='text-pink-400 font-bold'>polyglot</span> programming."
         ctaButtons={[
-          { text: "Get Started", href: "https://docs.elide.dev/index_md.html", primary: true },
+          { text: "Get Started", href: "/download", primary: true },
           { text: "Learn More", href: "/blog" }
         ]}
       />
