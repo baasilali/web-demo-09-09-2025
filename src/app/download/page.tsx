@@ -43,7 +43,6 @@ function formatCode(code: string): string {
 
 export default function Download() {
   const leftTextRef = useRef<HTMLDivElement>(null);
-  const rightSectionRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const codeBlocks = [

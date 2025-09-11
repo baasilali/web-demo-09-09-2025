@@ -19,7 +19,7 @@ export default function About() {
             </p>
             
             <p>
-              Whether you're prototyping, building production applications, or exploring new technologies, Elide provides the runtime foundation you need to bring your ideas to life.
+              Whether you&apos;re prototyping, building production applications, or exploring new technologies, Elide provides the runtime foundation you need to bring your ideas to life.
             </p>
           </div>
         </div>

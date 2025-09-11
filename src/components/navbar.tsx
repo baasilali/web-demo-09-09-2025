@@ -6,7 +6,6 @@ import {
   IconBrandGithub,
   IconBrandDiscord,
   IconHome,
-  IconUser,
   IconDownload,
   IconBook,
   IconCode,
